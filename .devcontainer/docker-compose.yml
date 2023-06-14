@@ -1,0 +1,28 @@
+version: '3'
+services:
+  app:
+    build:
+      context: ../docker/php
+      dockerfile: Dockerfile
+    volumes:
+      - ../src:/var/www/html
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+
+  db:
+    build:
+      context: ../docker/mysql
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    volumes:
+      - ../docker/mysql/data:/var/lib/mysql
+      - ../docker/mysql/conf.d:/etc/mysql/conf.d
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_ROOT_HOST: '%'
+    command: bash -c 'usermod -o -u $LINUX_MYSQL_UID mysql; groupmod -o -g $LINUX_MYSQL_GID mysql; chown -R mysql:root /var/run/mysqld/ /var/log/mysql/ /var/lib/mysql/; /entrypoint.sh mysqld --user=mysql --console'
