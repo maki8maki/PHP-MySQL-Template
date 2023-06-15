@@ -19,6 +19,6 @@
 		}
 	},
     "service": "app",
-	"workspaceFolder": "/var/www/html",
+	"workspaceFolder": "/workdir",
 	"shutdownAction": "stopCompose"
 }
