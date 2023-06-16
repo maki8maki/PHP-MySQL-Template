@@ -8,6 +8,8 @@ services:
       - ../:/workdir
       - ~/.gitconfig:/root/.gitconfig
       - ../docker/php/php.ini:/usr/local/etc/php/php.ini
+    environment:
+      LANG: C.UTF-8
     ports:
       - "80:80"
     depends_on:
@@ -27,5 +29,18 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: pass
       MYSQL_ROOT_HOST: '%'
+      MYSQL_DATABASE: test
       TZ: Asia/Tokyo
     command: bash -c 'usermod -o -u $LINUX_MYSQL_UID mysql; groupmod -o -g $LINUX_MYSQL_GID mysql; chown -R mysql:root /var/run/mysqld/ /var/log/mysql/ /var/lib/mysql/; /entrypoint.sh mysqld --user=mysql --console'
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=db
+      - PMA_USER=root
+      - PMA_PASSWORD=pass
+    ports:
+      - 4040:80
+    volumes:
+      - ./phpmyadmin/sessions:/sessions

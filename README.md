@@ -1,13 +1,12 @@
 # tmp
 
-## todo
-
-* phpMyAdminの導入
-* アカウント作成のphpに取り組む
-
 ## 使い方
 
-* コンテナの起動（vscodeのdevcontainerやターミナル）を行い，[http://localhost:80](http://localhost:80)にアクセスする
+* コンテナの起動（vscodeのdevcontainerやターミナル）を行う
+* index.phpへのアクセス
+  * [http://localhost:80](http://localhost:80)にアクセスする
+* phpMyAdminへのアクセス
+  * [http://localhost:4040](http://localhost:4040)にアクセスする
 
 ## 起動の注意点
 
