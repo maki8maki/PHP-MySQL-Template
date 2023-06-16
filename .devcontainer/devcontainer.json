@@ -14,7 +14,9 @@
 				"bradgashler.htmltagwrap",
 				"zobo.php-intellisense",
 				"junstyle.php-cs-fixer",
-				"neilbrayfield.php-docblocker"
+				"neilbrayfield.php-docblocker",
+				"george-alisson.html-preview-vscode",
+				"DavidAnson.vscode-markdownlint"
 			]
 		}
 	},

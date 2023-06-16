@@ -6,11 +6,12 @@
 </head>
 <body>
     <?php
-        phpinfo();
-        $dsn = 'mysql:dbname=mysql;host=db';
+        $dsn = 'mysql:dbname=test;host=db';
         $user = 'root';
         $password = 'pass';
         $pdo = new PDO($dsn, $user, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
+
+        phpinfo();
     ?>
 </body>
 </html>
