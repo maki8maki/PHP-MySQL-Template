@@ -1,4 +1,4 @@
-# tmp
+# PHP-MySQL-Template
 
 ## 使い方
 
